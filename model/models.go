@@ -7,6 +7,10 @@ import (
 type Url struct {
 	ID        uint `gorm:"primaryKey"`
 	CreatedAt time.Time
-	ShortUrl  string
-	LongUrl   string
+	ShortUrl  string `gorm:"unique"`
+	LongUrl   string `gorm:"unique"`
+}
+
+type UrlStruct struct {
+	Url string `json:"url"`
 }
